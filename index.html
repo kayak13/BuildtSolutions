@@ -1,106 +1,97 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Construction AI Command Center</title>
-    <style>
-        body { font-family: Arial, sans-serif; background: #f4f4f4; color: #333; padding: 2rem; }
-        h1 { color: #222; }
-        .section { background: #fff; padding: 1.5rem; margin-bottom: 2rem; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        code { background: #eee; padding: 0.2rem 0.5rem; border-radius: 4px; display: inline-block; margin-top: 0.5rem; }
-        pre { background: #272822; color: #f8f8f2; padding: 1rem; border-radius: 8px; overflow-x: auto; }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BUILDT Solutions | Client Command Center</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #fefcfb;
+      color: #222;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      text-align: center;
+      padding: 2rem;
+      background: #fff;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    header img {
+      width: 140px;
+    }
+    h1 {
+      margin: 0.5rem 0 0;
+      font-size: 2rem;
+      color: #e86e2c;
+    }
+    .content {
+      padding: 2rem;
+      max-width: 800px;
+      margin: auto;
+    }
+    .section {
+      background: #fff;
+      border-left: 5px solid #e86e2c;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 1px 5px rgba(0,0,0,0.05);
+    }
+    .cta {
+      text-align: center;
+      margin-top: 3rem;
+    }
+    .cta a {
+      background: #e86e2c;
+      color: #fff;
+      padding: 1rem 2rem;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 6px;
+      transition: background 0.3s;
+    }
+    .cta a:hover {
+      background: #cc5b1f;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      color: #777;
+    }
+  </style>
 </head>
 <body>
-    <h1>🛠️ Construction AI Command Center</h1>
-
+  <header>
+    <img src="buildt_logo.jpeg" alt="BUILDT Logo">
+    <h1>Client Command Center</h1>
+  </header>
+  <div class="content">
     <div class="section">
-        <h2>📅 Project Schedule Template</h2>
-        <pre>
-Project: {{Project Name}}
-Start Date: {{Start Date}}
-End Date: {{End Date}}
-
-WEEK 1
-- Demo
-- Framing
-
-WEEK 2
-- Electrical Rough-In
-- Plumbing Rough-In
-
-WEEK 3
-- Insulation
-- Drywall
-
-WEEK 4
-- Paint
-- Trim & Finish
-- Final Walkthrough
-        </pre>
+      <h2>Welcome to BUILDT Solutions</h2>
+      <p>This is your dedicated project management hub. Here you’ll find scheduling info, proposal tools, budget estimates, and all the core docs that keep your build smooth and stress-free.</p>
     </div>
 
     <div class="section">
-        <h2>📝 Client Proposal Generator</h2>
-        <pre>
-Project Scope: {{Scope Description}}
-Total Estimate: ${{Amount}}
-
-PAYMENT PHASES:
-- Phase 1: {{%}} Deposit
-- Phase 2: {{%}} Midpoint
-- Phase 3: {{%}} Final Payment on Completion
-
-INCLUDES:
-- Material list
-- Timeline
-- Change order clause
-- Signature line
-        </pre>
+      <h2>Need Something Specific?</h2>
+      <ul>
+        <li>Project Scheduling Request</li>
+        <li>Change Order Initiation</li>
+        <li>Client Proposal Request</li>
+        <li>Subcontractor Coordination</li>
+        <li>Document Uploads</li>
+      </ul>
     </div>
 
-    <div class="section">
-        <h2>📄 Subcontractor Agreement Template</h2>
-        <pre>
-Agreement between {{Your Business Name}} and {{Subcontractor Name}}
-
-SCOPE OF WORK:
-{{Details}}
-
-RATE: ${{Hourly/Flat}}
-PAYMENT TERMS: {{Net 15 / Net 30}}
-
-INCLUDES:
-- NDA Clause
-- Scope clarity
-- Project start/end
-- Termination clause
-        </pre>
+    <div class="cta">
+      <a href="mailto:inquiries@buildtsolutions.com?subject=Service%20Request%20from%20Client%20Portal">Request a Service</a>
     </div>
+  </div>
 
-    <div class="section">
-        <h2>📊 Budget Estimator Sample</h2>
-        <pre>
-Item,Qty,Unit Cost,Total Cost
-Drywall,30,$15,$450
-Paint,10,$25,$250
-Labor,1,$2,000,$2,000
-
-Total:,,,$2,700
-        </pre>
-    </div>
-
-    <div class="section">
-        <h2>🤖 AI Prompt Vault</h2>
-        <pre>
-1. "Create a 2-week punch list for a kitchen renovation."
-2. "Draft a change order for adding a backsplash."
-3. "Summarize this client text and create a polite response."
-4. "Make a payment reminder that sounds firm but friendly."
-5. "Generate a subcontractor onboarding checklist."
-        </pre>
-    </div>
-
+  <footer>
+    &copy; 2025 BUILDT Solutions. All rights reserved.
+  </footer>
 </body>
 </html>
