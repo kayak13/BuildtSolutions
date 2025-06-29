@@ -1,0 +1,15 @@
+CLIENT PROPOSAL PROMPT
+
+Project Scope: {{Scope Description}}
+Total Estimate: ${{Amount}}
+
+PAYMENT PHASES:
+- Phase 1: {{%}} Deposit
+- Phase 2: {{%}} Midpoint
+- Phase 3: {{%}} Final Payment on Completion
+
+INCLUDES:
+- Material list
+- Timeline
+- Change order clause
+- Signature line

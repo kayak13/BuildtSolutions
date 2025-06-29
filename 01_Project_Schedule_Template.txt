@@ -1,0 +1,22 @@
+PROJECT SCHEDULE TEMPLATE
+
+Project: {{Project Name}}
+Start Date: {{Start Date}}
+End Date: {{End Date}}
+
+WEEK 1
+- Demo
+- Framing
+
+WEEK 2
+- Electrical Rough-In
+- Plumbing Rough-In
+
+WEEK 3
+- Insulation
+- Drywall
+
+WEEK 4
+- Paint
+- Trim & Finish
+- Final Walkthrough

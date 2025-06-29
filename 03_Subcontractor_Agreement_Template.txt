@@ -1,0 +1,15 @@
+SUBCONTRACTOR AGREEMENT TEMPLATE
+
+Agreement between {{Your Business Name}} and {{Subcontractor Name}}
+
+SCOPE OF WORK:
+{{Details}}
+
+RATE: ${{Hourly/Flat}}
+PAYMENT TERMS: {{Net 15 / Net 30}}
+
+INCLUDES:
+- NDA Clause
+- Scope clarity
+- Project start/end
+- Termination clause
