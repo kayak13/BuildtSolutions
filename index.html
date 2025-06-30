@@ -4,94 +4,178 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>BUILDT Solutions | Client Command Center</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #fefcfb;
-      color: #222;
+      font-family: 'Inter', sans-serif;
+      background: #f9fafb;
+      color: #1f2937;
       margin: 0;
       padding: 0;
     }
     header {
       text-align: center;
-      padding: 2rem;
+      padding: 0;
       background: #fff;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
     }
-    header img {
-      width: 140px;
+    .hero {
+      position: relative;
+      background: url('https://images.unsplash.com/photo-1590650046871-92c887180603?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;
+      height: 320px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
     }
-    h1 {
-      margin: 0.5rem 0 0;
-      font-size: 2rem;
-      color: #e86e2c;
+    .hero h1 {
+      font-size: 2.75rem;
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+    }
+    .logo {
+      width: 120px;
+      margin: 1rem auto;
+      display: block;
     }
     .content {
       padding: 2rem;
-      max-width: 800px;
+      max-width: 960px;
       margin: auto;
     }
     .section {
-      background: #fff;
-      border-left: 5px solid #e86e2c;
-      padding: 1.5rem;
+      background: #ffffff;
+      border-left: 6px solid #e86e2c;
+      padding: 2rem;
       margin-bottom: 2rem;
-      border-radius: 8px;
-      box-shadow: 0 1px 5px rgba(0,0,0,0.05);
+      border-radius: 12px;
+      box-shadow: 0 1px 6px rgba(0, 0, 0, 0.06);
     }
-    .cta {
-      text-align: center;
-      margin-top: 3rem;
+    .section h2 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: #111827;
     }
-    .cta a {
+    .section p, .section li {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #4b5563;
+    }
+    form {
+      max-width: 600px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    input, textarea, select {
+      padding: 0.75rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+    button {
       background: #e86e2c;
       color: #fff;
-      padding: 1rem 2rem;
-      text-decoration: none;
-      font-weight: bold;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
       border-radius: 6px;
-      transition: background 0.3s;
+      cursor: pointer;
     }
-    .cta a:hover {
-      background: #cc5b1f;
+    button:hover {
+      background: #c2541b;
     }
     footer {
       text-align: center;
+      padding: 1.5rem;
+      font-size: 0.875rem;
+      color: #9ca3af;
+      background: #ffffff;
+    }
+    .review-box {
+      background: #f3f4f6;
       padding: 1rem;
-      font-size: 0.9rem;
-      color: #777;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      font-style: italic;
     }
   </style>
 </head>
 <body>
   <header>
-    <img src="buildt_logo.jpeg" alt="BUILDT Logo">
-    <h1>Client Command Center</h1>
+    <img src="buildt_logo.jpeg" alt="BUILDT Solutions Logo" class="logo">
+    <div class="hero">
+      <h1>Premium Project Management for the Modern Build</h1>
+    </div>
   </header>
   <div class="content">
     <div class="section">
-      <h2>Welcome to BUILDT Solutions</h2>
-      <p>This is your dedicated project management hub. Here you’ll find scheduling info, proposal tools, budget estimates, and all the core docs that keep your build smooth and stress-free.</p>
+      <h2>Submit a Service Request</h2>
+      <form action="https://formsubmit.co/support@buildtright.com" method="POST">
+        <input type="hidden" name="_next" value="https://buildtright.com/thank-you.html">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="text" name="name" placeholder="Your Full Name" required>
+        <input type="email" name="email" placeholder="Your Email Address" required>
+        <input type="tel" name="phone" placeholder="Phone Number" required>
+        <input type="text" name="location" placeholder="Project Location (City/State)" required>
+        <select name="project_type" required>
+          <option value="">Select Project Type</option>
+          <option value="residential">Residential Renovation</option>
+          <option value="commercial">Commercial Project</option>
+          <option value="custom_home">Custom Home Build</option>
+          <option value="multi_unit">Multi-Unit or Development</option>
+          <option value="other">Other</option>
+        </select>
+        <textarea name="message" placeholder="Tell us what you need..." rows="5" required></textarea>
+        <button type="submit">Send Inquiry</button>
+      </form>
     </div>
 
     <div class="section">
-      <h2>Need Something Specific?</h2>
+      <h2>Our Core Services</h2>
       <ul>
-        <li>Project Scheduling Request</li>
-        <li>Change Order Initiation</li>
-        <li>Client Proposal Request</li>
-        <li>Subcontractor Coordination</li>
-        <li>Document Uploads</li>
+        <li>Full-Service Construction Project Management</li>
+        <li>Remote Oversight + Onsite Coordination</li>
+        <li>Permitting, Scheduling & Budget Control</li>
+        <li>Change Order Management</li>
+        <li>Subcontractor Sourcing & Communication</li>
+        <li>Client Proposal Generation & Review</li>
+        <li>Scope Reviews + Progress Reporting</li>
       </ul>
     </div>
 
-    <div class="cta">
-      <a href="mailto:inquiries@buildtsolutions.com?subject=Service%20Request%20from%20Client%20Portal">Request a Service</a>
+    <div class="section">
+      <h2>Why BUILDT?</h2>
+      <p><strong>We don’t just manage construction—we orchestrate seamless builds.</strong> We are tech-forward, schedule-obsessed, and communication-driven. Unlike your typical clipboard-holding CPMs, we operate with AI precision, luxury service standards, and a no-BS delivery model that keeps your project moving without excuses.</p>
+      <ul>
+        <li>Digital dashboards & real-time client updates</li>
+        <li>Remote + onsite project oversight options</li>
+        <li>Sub + supplier coordination done-for-you</li>
+        <li>Proposal + change order automation</li>
+        <li>Fast, feminine, and absolutely ferocious at protecting your bottom line</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>Client Reviews</h2>
+      <div class="review-box">“BUILDT handled everything while I traveled. My project came in under budget, ahead of schedule, and stress-free.” – Jennifer M.</div>
+      <div class="review-box">“Best communication I’ve ever had with any contractor or PM. Period.” – Marcus T.</div>
+      <div class="review-box">“The most organized, responsive, and luxurious experience I’ve ever had with a construction team.” – Rachel S.</div>
+    </div>
+
+    <div class="section">
+      <h2>Contact Us Directly</h2>
+      <p>Email: <a href="mailto:support@buildtright.com">support@buildtright.com</a></p>
+      <p>Instagram: <a href="https://instagram.com/buildtsolutions" target="_blank">@buildtsolutions</a></p>
+      <p>Service Hours: Mon–Fri, 9am–6pm PT</p>
     </div>
   </div>
-
   <footer>
-    &copy; 2025 BUILDT Solutions. All rights reserved.
+    &copy; 2025 BUILDT Solutions. Premium oversight. Real results.
   </footer>
 </body>
 </html>
