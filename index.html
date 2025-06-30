@@ -2,122 +2,60 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BUILDT Solutions | Client Command Center</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BUILDT Solutions | Premium Project Oversight</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <script defer src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+  <script>
+    !function(w,d,t){w.TiktokAnalyticsObject=t;var tt=w[t]=w[t]||[];
+    tt.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie"],
+    tt.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}},
+    tt.instance=function(t){for(var e=tt._i[t]||[],n=0;n<tt.methods.length;n++)tt.setAndDefer(e,tt.methods[n]);return e},
+    tt.load=function(e,n){var i="https://analytics.tiktok.com/i18n/pixel/events.js";tt._i=tt._i||{},tt._i[e]=[],tt._i[e]._u=i,tt._t=e,
+    tt._o=n||{};var a=document.createElement("script");a.type="text/javascript",a.async=!0,a.src=i+
+    "?sdkid="+e+"&lib="+t;var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(a,s)};
+    tt.load("YOUR_PIXEL_ID");
+    tt.page();
+  }(window,document,"ttq");
+  </script>
   <style>
-    body {
-      font-family: 'Inter', sans-serif;
-      background: #f9fafb;
-      color: #1f2937;
-      margin: 0;
-      padding: 0;
-    }
-    header {
-      text-align: center;
-      padding: 0;
-      background: #fff;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-    }
-    .hero {
-      position: relative;
-      background: url('https://images.unsplash.com/photo-1590650046871-92c887180603?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;
-      height: 320px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
-    }
-    .hero h1 {
-      font-size: 2.75rem;
-      background-color: rgba(0, 0, 0, 0.5);
-      padding: 0.75rem 1.5rem;
-      border-radius: 8px;
-    }
-    .logo {
-      width: 120px;
-      margin: 1rem auto;
-      display: block;
-    }
-    .content {
-      padding: 2rem;
-      max-width: 960px;
-      margin: auto;
-    }
-    .section {
-      background: #ffffff;
-      border-left: 6px solid #e86e2c;
-      padding: 2rem;
-      margin-bottom: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 1px 6px rgba(0, 0, 0, 0.06);
-    }
-    .section h2 {
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-      color: #111827;
-    }
-    .section p, .section li {
-      font-size: 1rem;
-      line-height: 1.6;
-      color: #4b5563;
-    }
-    form {
-      max-width: 600px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-    input, textarea, select {
-      padding: 0.75rem;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      font-size: 1rem;
-    }
-    button {
-      background: #e86e2c;
-      color: #fff;
-      border: none;
-      padding: 0.75rem 1.5rem;
-      font-size: 1rem;
-      border-radius: 6px;
-      cursor: pointer;
-    }
-    button:hover {
-      background: #c2541b;
-    }
-    footer {
-      text-align: center;
-      padding: 1.5rem;
-      font-size: 0.875rem;
-      color: #9ca3af;
-      background: #ffffff;
-    }
-    .review-box {
-      background: #f3f4f6;
-      padding: 1rem;
-      border-radius: 8px;
-      margin-bottom: 1rem;
-      font-style: italic;
-    }
+    body { margin: 0; font-family: 'Inter', sans-serif; background: #f8f9fa; color: #1f2937; }
+    header { background: #111827; color: #fff; padding: 3rem 2rem; text-align: center; }
+    header h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+    header p { font-size: 1.125rem; color: #d1d5db; }
+    .hero-logo { width: 100px; margin: 0 auto 1.5rem; }
+    .content { max-width: 960px; margin: 2rem auto; padding: 0 1rem; }
+    .section { background: #fff; border-left: 4px solid #e86e2c; padding: 2rem; margin-bottom: 2rem; border-radius: 10px; box-shadow: 0 2px 6px rgba(0,0,0,0.05); }
+    .section h2 { margin-top: 0; font-size: 1.5rem; }
+    form { display: flex; flex-direction: column; gap: 1rem; }
+    input, textarea, select { padding: 0.75rem; border-radius: 6px; border: 1px solid #cbd5e1; font-size: 1rem; }
+    button { background-color: #e86e2c; color: #fff; padding: 0.75rem; border: none; font-size: 1rem; font-weight: 600; border-radius: 6px; cursor: pointer; transition: background 0.3s ease; }
+    button:hover { background-color: #c2541b; }
+    .review-box { background: #f1f5f9; padding: 1rem; border-radius: 8px; margin-bottom: 1rem; font-style: italic; }
+    footer { text-align: center; padding: 2rem; font-size: 0.9rem; color: #6b7280; background: #fff; border-top: 1px solid #e5e7eb; }
   </style>
 </head>
 <body>
   <header>
-    <img src="buildt_logo.jpeg" alt="BUILDT Solutions Logo" class="logo">
-    <div class="hero">
-      <h1>Premium Project Management for the Modern Build</h1>
-    </div>
+    <img src="buildt_logo.jpeg" alt="BUILDT Logo" class="hero-logo">
+    <h1>BUILDT Solutions</h1>
+    <p>Premium Project Oversight for Residential + Commercial Builds</p>
   </header>
-  <div class="content">
-    <div class="section">
+  <main class="content">
+    <div class="section" data-aos="fade-up">
       <h2>Submit a Service Request</h2>
       <form action="https://formsubmit.co/support@buildtright.com" method="POST">
-        <input type="hidden" name="_next" value="https://buildtright.com/thank-you.html">
-        <input type="hidden" name="_template" value="table">
         <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_next" value="https://buildtright.com/thank-you.html">
         <input type="text" name="name" placeholder="Your Full Name" required>
         <input type="email" name="email" placeholder="Your Email Address" required>
         <input type="tel" name="phone" placeholder="Phone Number" required>
@@ -131,11 +69,14 @@
           <option value="other">Other</option>
         </select>
         <textarea name="message" placeholder="Tell us what you need..." rows="5" required></textarea>
+        <label for="preferred_date">Preferred Date:</label>
+        <input type="date" name="preferred_date" required>
+        <label for="preferred_time">Preferred Time:</label>
+        <input type="time" name="preferred_time" required>
         <button type="submit">Send Inquiry</button>
       </form>
     </div>
-
-    <div class="section">
+    <div class="section" data-aos="fade-up">
       <h2>Our Core Services</h2>
       <ul>
         <li>Full-Service Construction Project Management</li>
@@ -147,35 +88,32 @@
         <li>Scope Reviews + Progress Reporting</li>
       </ul>
     </div>
-
-    <div class="section">
+    <div class="section" data-aos="fade-up">
       <h2>Why BUILDT?</h2>
-      <p><strong>We don’t just manage construction—we orchestrate seamless builds.</strong> We are tech-forward, schedule-obsessed, and communication-driven. Unlike your typical clipboard-holding CPMs, we operate with AI precision, luxury service standards, and a no-BS delivery model that keeps your project moving without excuses.</p>
+      <p><strong>We don’t just manage construction—we orchestrate seamless builds.</strong> Tech-forward, schedule-obsessed, and laser-focused on your ROI. We combine AI automation, elite communication, and proven trade oversight into one powerhouse package.</p>
       <ul>
-        <li>Digital dashboards & real-time client updates</li>
-        <li>Remote + onsite project oversight options</li>
-        <li>Sub + supplier coordination done-for-you</li>
-        <li>Proposal + change order automation</li>
-        <li>Fast, feminine, and absolutely ferocious at protecting your bottom line</li>
+        <li>Digital dashboards & live project updates</li>
+        <li>Remote-first oversight or boots-on-site presence</li>
+        <li>White-glove service for contractors, developers & owners</li>
+        <li>Proposals, subs, permits, and schedules — handled</li>
       </ul>
     </div>
-
-    <div class="section">
+    <div class="section" data-aos="fade-up">
       <h2>Client Reviews</h2>
       <div class="review-box">“BUILDT handled everything while I traveled. My project came in under budget, ahead of schedule, and stress-free.” – Jennifer M.</div>
       <div class="review-box">“Best communication I’ve ever had with any contractor or PM. Period.” – Marcus T.</div>
       <div class="review-box">“The most organized, responsive, and luxurious experience I’ve ever had with a construction team.” – Rachel S.</div>
     </div>
-
-    <div class="section">
+    <div class="section" data-aos="fade-up">
       <h2>Contact Us Directly</h2>
       <p>Email: <a href="mailto:support@buildtright.com">support@buildtright.com</a></p>
       <p>Instagram: <a href="https://instagram.com/buildtsolutions" target="_blank">@buildtsolutions</a></p>
-      <p>Service Hours: Mon–Fri, 9am–6pm PT</p>
+      <p>Hours: Mon–Fri, 9am–6pm PT</p>
     </div>
-  </div>
+  </main>
   <footer>
     &copy; 2025 BUILDT Solutions. Premium oversight. Real results.
   </footer>
+  <script>AOS.init();</script>
 </body>
 </html>
