@@ -2,123 +2,56 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BUILDT | Instant Quote</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <title>Quote Request | BUILDT</title>
   <style>
-    body { background: #f9fafb; font-family: 'Inter', sans-serif; padding: 2rem; color: #111827; }
-    .container { max-width: 640px; margin: auto; background: #fff; border-radius: 16px; padding: 2rem; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05); }
-    .header-link {
-      display: block;
-      width: max-content;
-      margin: 0 auto 1.5rem;
-      background: #e86e2c;
-      color: white;
-      padding: 0.6rem 1.25rem;
-      border-radius: 10px;
-      font-weight: 600;
-      text-decoration: none;
-      text-align: center;
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f9fafb;
+      padding: 2rem;
     }
-    .header-link:hover {
-      background: #c2541b;
+    form {
+      max-width: 600px;
+      margin: 0 auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
     }
-    h1 { text-align: center; margin-bottom: 1rem; font-size: 2rem; font-weight: 800; }
-    label { display: block; margin-top: 1rem; font-weight: 600; }
-    select, input[type="number"], input[type="email"] {
-      width: 100%; padding: 0.75rem; margin-top: 0.5rem;
-      border: 1px solid #d1d5db; border-radius: 8px; font-size: 1rem;
-    }
-    .output { margin-top: 2rem; font-size: 1.25rem; font-weight: 600; color: #e86e2c; text-align: center; }
-    form { margin-top: 2rem; text-align: center; }
-    form input[type="email"] { margin-bottom: 1rem; }
-    button {
-      background: #e86e2c;
-      color: white;
-      padding: 0.75rem 1.5rem;
-      font-size: 1rem;
-      border: none;
+    input, textarea, select {
+      width: 100%;
+      padding: 0.75rem;
+      margin-top: 1rem;
+      border: 1px solid #ccc;
       border-radius: 8px;
-      cursor: pointer;
-      font-weight: 600;
     }
-    button:hover {
-      background: #c2541b;
+    button {
+      margin-top: 2rem;
+      background: #e86e2c;
+      color: white;
+      padding: 0.75rem 2rem;
+      border: none;
+      border-radius: 10px;
+      font-weight: bold;
+      cursor: pointer;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <a class="header-link" href="index.html">← Back to BUILDT Home</a>
-    <h1>Instant Quote Calculator</h1>
-    <label for="type">Project Type</label>
-    <select id="type">
-      <option value="10">Residential Renovation</option>
-      <option value="12">Custom Home Build</option>
-      <option value="14">Commercial Construction</option>
-      <option value="15">Multi-Unit Development</option>
+  <h1 style="text-align:center;">Request a Project Quote</h1>
+  <form action="https://formspree.io/f/mnqegrld" method="POST">
+    <input type="text" name="name" placeholder="Full Name" required>
+    <input type="email" name="email" placeholder="Email" required>
+    <input type="tel" name="phone" placeholder="Phone Number" required>
+    <input type="text" name="location" placeholder="Project Location (City, Zip)">
+    <select name="service">
+      <option value="">Select a Service</option>
+      <option>Construction Management</option>
+      <option>Contractor Dispatch</option>
+      <option>Estimate Review</option>
+      <option>Other</option>
     </select>
-
-    <label for="budget">Estimated Project Budget ($)</label>
-    <input type="number" id="budget" placeholder="50000" />
-
-    <label for="complexity">Project Complexity</label>
-    <select id="complexity">
-      <option value="1">Standard (1x)</option>
-      <option value="1.15">Complex (1.15x)</option>
-      <option value="1.3">High Touch / Concierge (1.3x)</option>
-    </select>
-
-    <div class="output" id="result">Estimated Fee: —</div>
-
-    <form id="quoteForm" action="https://formsubmit.co/support@buildtright.com" method="POST">
-      <input type="hidden" name="_subject" value="Quote Estimate Request">
-      <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_template" value="table">
-      <input type="hidden" name="_next" value="https://buildtright.com/thank-you.html">
-
-      <input type="hidden" name="project_type" id="hiddenProjectType">
-      <input type="hidden" name="project_budget" id="hiddenBudget">
-      <input type="hidden" name="project_complexity" id="hiddenComplexity">
-      <input type="hidden" name="estimated_fee" id="hiddenEstimate">
-
-      <input type="email" name="email" placeholder="Enter your email to receive this quote" required>
-      <button type="submit">Email Me My Quote</button>
-    </form>
-  </div>
-
-  <script>
-    const type = document.getElementById('type');
-    const budget = document.getElementById('budget');
-    const complexity = document.getElementById('complexity');
-    const result = document.getElementById('result');
-
-    const hiddenType = document.getElementById('hiddenProjectType');
-    const hiddenBudget = document.getElementById('hiddenBudget');
-    const hiddenComplexity = document.getElementById('hiddenComplexity');
-    const hiddenEstimate = document.getElementById('hiddenEstimate');
-
-    function calculate() {
-      const feePercent = parseFloat(type.value);
-      const budgetVal = parseFloat(budget.value);
-      const complexityVal = parseFloat(complexity.value);
-
-      if (!isNaN(feePercent) && !isNaN(budgetVal) && !isNaN(complexityVal)) {
-        const estimate = ((feePercent / 100) * budgetVal) * complexityVal;
-        result.innerText = `Estimated Fee: $${estimate.toFixed(2)}`;
-
-        hiddenType.value = type.options[type.selectedIndex].text;
-        hiddenBudget.value = `$${budgetVal.toFixed(2)}`;
-        hiddenComplexity.value = complexity.options[complexity.selectedIndex].text;
-        hiddenEstimate.value = `$${estimate.toFixed(2)}`;
-      } else {
-        result.innerText = 'Estimated Fee: —';
-      }
-    }
-
-    type.addEventListener('change', calculate);
-    budget.addEventListener('input', calculate);
-    complexity.addEventListener('change', calculate);
-  </script>
+    <textarea name="details" placeholder="Tell us about your project..." rows="6"></textarea>
+    <button type="submit">Submit Quote Request</button>
+  </form>
 </body>
 </html>
