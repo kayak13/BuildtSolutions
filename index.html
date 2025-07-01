@@ -2,173 +2,153 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <title>BUILDT Solutions</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BUILDT Solutions | Premium Project Oversight</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
-      font-family: 'Inter', sans-serif;
-      background-color: #f9fafb;
-      color: #111827;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f5f5f5;
     }
-    .hero {
-      position: relative;
-      width: 100%;
-      height: 90vh;
-      background: url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
+    header {
+      background: #0e1726;
+      color: white;
+      padding: 2rem 1rem;
       text-align: center;
     }
-    .overlay {
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0, 0, 0, 0.6);
-      z-index: 1;
-    }
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      color: white;
-      padding: 2rem;
-    }
-    .hero-content img {
+    header img {
       max-width: 100px;
       margin-bottom: 1rem;
     }
-    .hero-content h1 {
+    header h1 {
       font-size: 2.5rem;
-      font-weight: 800;
-      margin-bottom: 0.5rem;
+      margin: 0;
     }
-    .hero-content p {
-      font-size: 1.25rem;
-      font-weight: 500;
-      margin-bottom: 1.5rem;
+    header p {
+      font-size: 1.1rem;
+      color: #d1d1d1;
+      margin-top: 0.5rem;
     }
-    .hero-content a {
+    .cta-button {
       display: inline-block;
-      background: #e86e2c;
-      color: white;
+      margin-top: 1.5rem;
       padding: 0.75rem 1.5rem;
-      font-weight: 600;
-      border-radius: 10px;
-      text-decoration: none;
-      transition: background 0.3s;
-    }
-    .hero-content a:hover {
-      background: #c2541b;
-    }
-    .scroll-down {
-      position: absolute;
-      bottom: 1rem;
-      z-index: 2;
+      background-color: #e86e2c;
       color: white;
-      font-size: 1rem;
-      animation: bounce 2s infinite;
-    }
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-5px); }
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
     }
     .services {
-      padding: 4rem 2rem;
-      background: #ffffff;
-      text-align: center;
-    }
-    .services h2 {
-      font-size: 2rem;
-      margin-bottom: 2rem;
-      font-weight: 800;
-    }
-    .service-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 2rem;
+      gap: 1.5rem;
+      padding: 3rem 2rem;
+      background: white;
     }
-    <section class="calculator" style="padding: 3rem 2rem; background: #f4f4f4;">
-  <h2 style="text-align:center; font-size: 2rem; margin-bottom: 1.5rem;">Instant Estimate Calculator</h2>
-  <div style="max-width: 500px; margin: 0 auto;">
-    <label>Total Sq Ft:</label>
-    <input type="number" id="sqft" placeholder="e.g. 2500" style="width: 100%; padding: 0.75rem; margin-top: 0.5rem; margin-bottom: 1rem;">
-
-    <label>Service Type:</label>
-    <select id="serviceType" style="width: 100%; padding: 0.75rem; margin-bottom: 1.5rem;">
-      <option value="0.75">Standard Oversight ($0.75/sqft)</option>
-      <option value="1.25">Luxury Oversight ($1.25/sqft)</option>
-      <option value="2.00">Concierge Build Mgmt ($2.00/sqft)</option>
-    </select>
-
-    <button onclick="calculateQuote()" style="width: 100%; background: #e86e2c; color: white; padding: 1rem; font-weight: bold; border: none; border-radius: 8px;">Get Estimate</button>
-
-    <p id="quoteResult" style="margin-top: 1.5rem; font-size: 1.25rem; font-weight: 600;"></p>
-  </div>
-</section>
-
-<script>
-function calculateQuote() {
-  const sqft = document.getElementById("sqft").value;
-  const rate = document.getElementById("serviceType").value;
-  const result = sqft * rate;
-  if (!sqft || sqft <= 0) {
-    document.getElementById("quoteResult").innerText = "Enter a valid square footage.";
-  } else {
-    document.getElementById("quoteResult").innerText = `Estimated Cost: $${result.toFixed(2)}`;
-  }
-}
-</script>
-    .service-card {
-      padding: 1.5rem;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-      border: 1px solid #e5e7eb;
+    .service-box {
+      background: #fefefe;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      text-align: center;
     }
-    .service-card h3 {
+    .service-box h3 {
+      margin-bottom: 0.5rem;
+    }
+    .calculator {
+      padding: 3rem 2rem;
+      background: #f4f4f4;
+    }
+    .calculator h2 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+    }
+    .calculator input, .calculator select {
+      width: 100%;
+      padding: 0.75rem;
+      margin-top: 0.5rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+    .calculator button {
+      width: 100%;
+      background: #e86e2c;
+      color: white;
+      padding: 1rem;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .calculator #quoteResult {
+      margin-top: 1.5rem;
       font-size: 1.25rem;
-      margin-bottom: 0.75rem;
-      font-weight: 700;
-    }
-    .service-card p {
-      font-size: 0.95rem;
-      color: #4b5563;
+      font-weight: 600;
+      text-align: center;
     }
   </style>
 </head>
 <body>
-  <section class="hero">
-    <div class="overlay"></div>
-    <div class="hero-content">
-      <img src="https://raw.githubusercontent.com/kayak13/BuildtSolutions/main/assets/buildt_logo.jpeg" alt="Buildt Logo" />
-      <h1>BUILDT Solutions</h1>
-      <p>Project Execution. Elevated. Residential + Commercial Oversight.</p>
-      <a href="quote.html">Get a Fast Quote</a>
-    </div>
-    <div class="scroll-down">↓ Scroll for More</div>
-  </section>
+
+  <header>
+    <img src="https://raw.githubusercontent.com/kayak13/BuildtSolutions/main/assets/buildt_logo.jpeg?raw=true" alt="BUILDT Logo">
+    <h1>BUILDT Solutions</h1>
+    <p>Premium Project Oversight for Residential + Commercial Builds</p>
+    <a href="quote.html" class="cta-button">Get a Fast Quote</a>
+  </header>
 
   <section class="services">
-    <h2>Our Core Services</h2>
-    <div class="service-grid">
-      <div class="service-card">
-        <h3>Construction Management</h3>
-        <p>From pre-construction to closeout, we coordinate all aspects of your project with precision and transparency.</p>
-      </div>
-      <div class="service-card">
-        <h3>Contractor Dispatch</h3>
-        <p>Access a vetted network of skilled trades and pros. We match your scope with the right team—fast.</p>
-      </div>
-      <div class="service-card">
-        <h3>Scope Review + Estimates</h3>
-        <p>We analyze, align, and budget your project scope so you never waste money or time on guesswork.</p>
-      </div>
-      <div class="service-card">
-        <h3>Timeline + Quality Oversight</h3>
-        <p>Deadlines matter. We keep everyone accountable and your project moving forward without delays.</p>
-      </div>
+    <div class="service-box">
+      <h3>Construction Management</h3>
+      <p>Oversee all phases of your build from pre-con to closeout. We handle vendors, schedules, and scope.</p>
+    </div>
+    <div class="service-box">
+      <h3>Contractor Dispatch</h3>
+      <p>Need trusted, licensed contractors fast? We match you with vetted pros in your area.</p>
+    </div>
+    <div class="service-box">
+      <h3>Estimate Reviews</h3>
+      <p>We audit quotes for hidden fees, scope gaps, and inflated labor — so you don’t get burned.</p>
+    </div>
+    <div class="service-box">
+      <h3>Client Advocacy</h3>
+      <p>Dispute resolution, punch list oversight, and owner-side negotiation — we’re in your corner.</p>
     </div>
   </section>
+
+  <section class="calculator">
+    <h2>Instant Estimate Calculator</h2>
+    <div style="max-width: 500px; margin: 0 auto;">
+      <label>Total Sq Ft:</label>
+      <input type="number" id="sqft" placeholder="e.g. 2500">
+
+      <label>Service Type:</label>
+      <select id="serviceType">
+        <option value="0.75">Standard Oversight ($0.75/sqft)</option>
+        <option value="1.25">Luxury Oversight ($1.25/sqft)</option>
+        <option value="2.00">Concierge Build Mgmt ($2.00/sqft)</option>
+      </select>
+
+      <button onclick="calculateQuote()">Get Estimate</button>
+      <p id="quoteResult"></p>
+    </div>
+  </section>
+
+  <script>
+    function calculateQuote() {
+      const sqft = document.getElementById("sqft").value;
+      const rate = document.getElementById("serviceType").value;
+      const result = sqft * rate;
+      if (!sqft || sqft <= 0) {
+        document.getElementById("quoteResult").innerText = "Enter a valid square footage.";
+      } else {
+        document.getElementById("quoteResult").innerText = `Estimated Cost: $${result.toFixed(2)}`;
+      }
+    }
+  </script>
+
 </body>
 </html>
