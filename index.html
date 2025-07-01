@@ -89,6 +89,37 @@
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
       gap: 2rem;
     }
+    <section class="calculator" style="padding: 3rem 2rem; background: #f4f4f4;">
+  <h2 style="text-align:center; font-size: 2rem; margin-bottom: 1.5rem;">Instant Estimate Calculator</h2>
+  <div style="max-width: 500px; margin: 0 auto;">
+    <label>Total Sq Ft:</label>
+    <input type="number" id="sqft" placeholder="e.g. 2500" style="width: 100%; padding: 0.75rem; margin-top: 0.5rem; margin-bottom: 1rem;">
+
+    <label>Service Type:</label>
+    <select id="serviceType" style="width: 100%; padding: 0.75rem; margin-bottom: 1.5rem;">
+      <option value="0.75">Standard Oversight ($0.75/sqft)</option>
+      <option value="1.25">Luxury Oversight ($1.25/sqft)</option>
+      <option value="2.00">Concierge Build Mgmt ($2.00/sqft)</option>
+    </select>
+
+    <button onclick="calculateQuote()" style="width: 100%; background: #e86e2c; color: white; padding: 1rem; font-weight: bold; border: none; border-radius: 8px;">Get Estimate</button>
+
+    <p id="quoteResult" style="margin-top: 1.5rem; font-size: 1.25rem; font-weight: 600;"></p>
+  </div>
+</section>
+
+<script>
+function calculateQuote() {
+  const sqft = document.getElementById("sqft").value;
+  const rate = document.getElementById("serviceType").value;
+  const result = sqft * rate;
+  if (!sqft || sqft <= 0) {
+    document.getElementById("quoteResult").innerText = "Enter a valid square footage.";
+  } else {
+    document.getElementById("quoteResult").innerText = `Estimated Cost: $${result.toFixed(2)}`;
+  }
+}
+</script>
     .service-card {
       padding: 1.5rem;
       border-radius: 12px;
