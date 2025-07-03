@@ -52,7 +52,6 @@
       justify-content: space-between;
       align-items: center;
     }
-    nav .logo img { height: 40px; }
     nav a { color: white; text-decoration: none; margin-left: 2rem; font-weight: 600; }
     nav a:hover { color: #facc15; }
     .services-section {
@@ -77,16 +76,19 @@
       transform: translateY(-5px);
       background: #fef3ec;
     }
-    #estimateForm {
+    .calculator-section, .estimate-form-section {
       max-width: 600px;
       margin: 3rem auto;
       background: white;
       padding: 2rem;
       border-radius: 12px;
       box-shadow: 0 8px 24px rgba(0,0,0,0.05);
-      display: none;
     }
-    input, textarea, select {
+    .calculator-section label, .estimate-form-section label {
+      display: block;
+      margin-top: 1rem;
+    }
+    .calculator-section input, .calculator-section select, .estimate-form-section input, .estimate-form-section select, .estimate-form-section textarea {
       width: 100%;
       padding: 0.75rem;
       margin: 0.5rem 0;
@@ -104,23 +106,28 @@
       width: 100%;
       margin-top: 1rem;
     }
-    .credibility {
+    .calculator-result {
       text-align: center;
-      font-style: italic;
-      max-width: 700px;
-      margin: 2rem auto;
-      color: #374151;
+      font-size: 1.25rem;
+      margin-top: 1.5rem;
+      color: #1d4ed8;
+    }
+    footer {
+      background: #0f172a;
+      color: white;
+      padding: 2rem;
+      text-align: center;
+      font-size: 0.9rem;
     }
   </style>
 </head>
 <body>
   <nav>
-    <div class="logo">
-      <img src="3F0B41C6-E044-4D0C-BFCA-4FEFA4490229.png" alt="Buildt Logo">
-    </div>
+    <div><strong>BUILDT Solutions</strong></div>
     <div>
       <a href="#services">Services</a>
-      <a href="#estimateForm">Estimate</a>
+      <a href="#calculator">Calculator</a>
+      <a href="#estimate">Estimate</a>
     </div>
   </nav>
 
@@ -135,15 +142,76 @@
   <section class="services-section" id="services">
     <h2>Our Services</h2>
     <div class="services-grid">
-      <div onclick="showForm('Project Management')">Project Management</div>
-      <div onclick="showForm('Contractor Dispatch')">Contractor Dispatch</div>
-      <div onclick="showForm('Permit Oversight')">Permit Oversight</div>
-      <div onclick="showForm('Luxury Home Renovation')">Luxury Home Renovation</div>
-      <div onclick="showForm('Site Supervision')">Site Supervision</div>
-      <div onclick="showForm('Pre-Construction Consulting')">Pre-Construction Consulting</div>
+      <div><h3>Project Management</h3><p>Full-scope oversight from blueprint to final inspection—budgeting, scheduling, quality control, and contractor coordination all handled under one roof.</p></div>
+      <div><h3>Contractor Dispatch</h3><p>Need help fast? We dispatch vetted pros with the right experience for your job—licensed, reliable, and ready to build.</p></div>
+      <div><h3>Permit Oversight</h3><p>Skip the red tape. We manage your permits, applications, and city inspections so your project doesn’t stall out.</p></div>
+      <div><h3>Site Supervision</h3><p>Your eyes and ears on-site. We enforce timelines, check contractor performance, and report updates to you in real time.</p></div>
+      <div><h3>Luxury Home Renovation</h3><p>We specialize in high-end remodeling and renovations—kitchens, estates, and legacy builds that need white-glove service.</p></div>
+      <div><h3>Design Build Consulting</h3><p>We align your design team and contractors early so your vision doesn’t get lost in translation—or cost overruns.</p></div>
+      <div><h3>Commercial Tenant Improvement</h3><p>From office fit-outs to retail remodels, we manage your commercial project without interrupting your operations.</p></div>
+      <div><h3>HOA & Multifamily Projects</h3><p>We coordinate repairs, upgrades, and ongoing improvements across townhomes, apartments, and shared community builds.</p></div>
+      <div><h3>Remote Project Support</h3><p>Not on-site? We are. Get boots-on-the-ground reporting, inspections, and walkthroughs—no matter where you live.</p></div>
     </div>
   </section>
 
-  <div class="credibility">
-    Based in Visalia, CA. Serving Central Valley’s most elite homeowners and developers. BUILDT Solutions delivers white-glove construction oversight with transparency, accountability, and unmatch
-    
+  <section class="calculator-section" id="calculator">
+    <h2>Project Cost Calculator</h2>
+    <label for="squareFeet">Project Size (sq ft)</label>
+    <input type="number" id="squareFeet" placeholder="e.g. 2500">
+
+    <label for="complexity">Complexity Level (1–5)</label>
+    <select id="complexity">
+      <option value="1">1 – Basic Remodel (simple paint/flooring)</option>
+      <option value="2">2 – Light Renovation (minor layout changes)</option>
+      <option value="3">3 – Standard Build (bath/kitchen renovation)</option>
+      <option value="4">4 – Full Gut or Add-on</option>
+      <option value="5">5 – Custom/Luxury Build (unique finishes or permits)</option>
+    </select>
+
+    <button onclick="calculate()">Estimate Cost</button>
+    <div class="calculator-result" id="result"></div>
+  </section>
+
+  <section class="estimate-form-section" id="estimate">
+    <h2>Request a Personalized Estimate</h2>
+    <label>Name</label>
+    <input type="text" placeholder="Your full name">
+    <label>Email</label>
+    <input type="email" placeholder="you@example.com">
+    <label>Phone</label>
+    <input type="tel" placeholder="559-302-0057">
+    <label>Service Needed</label>
+    <select>
+      <option>Project Management</option>
+      <option>Contractor Dispatch</option>
+      <option>Permit Oversight</option>
+      <option>Luxury Renovation</option>
+      <option>Site Supervision</option>
+    </select>
+    <label>Square Footage</label>
+    <input type="number" placeholder="Estimated size">
+    <label>Notes</label>
+    <textarea placeholder="Tell us about your project"></textarea>
+    <button class="submit">Submit Request</button>
+  </section>
+
+  <footer>
+    Contact us at <a href="mailto:support@buildtright.com" style="color: #facc15; text-decoration: underline;">support@buildtright.com</a> or call <a href="tel:5593020057" style="color: #facc15; text-decoration: underline;">559-302-0057</a><br>
+    BUILDT Solutions © 2025. All rights reserved.
+  </footer>
+
+  <script>
+    function calculate() {
+      const sqft = parseFloat(document.getElementById('squareFeet').value);
+      const complexity = parseFloat(document.getElementById('complexity').value);
+      if (!sqft || !complexity) {
+        document.getElementById('result').textContent = 'Please enter valid inputs.';
+        return;
+      }
+      const pricePerSqFt = 3 + complexity * 1.5;
+      const total = (sqft * pricePerSqFt).toFixed(2);
+      document.getElementById('result').textContent = `Estimated Project Cost: $${total}`;
+    }
+  </script>
+</body>
+</html>
