@@ -1,147 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script type="application/ld+json">
-{
-  "@context": "http://schema.org",
-  "@type": "LocalBusiness",
-  "name": "BUILDT Solutions",
-  "image": "https://yourdomain.com/your-image.jpg",
-  "email": "support@buildtright.com",
-  "telephone": "+15593020057",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "Your Street Address",
-    "addressLocality": "Visalia",
-    "addressRegion": "CA",
-    "postalCode": "93291",
-    "addressCountry": "US"
-  },
-  "url": "https://yourdomain.com",
-  "description": "Luxury contractor and project management company serving Visalia and Tulare County."
-}
-</script>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BUILDT Solutions | Services & Estimates</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BUILDT Solutions | Visalia Contractor & Estimate Tool</title>
   <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+  <meta name="description" content="Luxury contractor and project management services in Visalia and Tulare County. Request an estimate online.">
+  <script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "LocalBusiness",
+    "name": "BUILDT Solutions",
+    "image": "https://yourdomain.com/your-image.jpg",
+    "email": "support@buildtright.com",
+    "telephone": "+15593020057",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Your Street Address",
+      "addressLocality": "Visalia",
+      "addressRegion": "CA",
+      "postalCode": "93291",
+      "addressCountry": "US"
+    },
+    "url": "https://yourdomain.com",
+    "description": "Luxury contractor and project management company serving Visalia and Tulare County."
+  }
+  </script>
   <style>
-    body { font-family: 'Inter', sans-serif; margin: 0; background-color: #f5f5f4; color: #1f2937; }
-    header {
-      position: relative;
-      background: url('https://images.unsplash.com/photo-1565182999561-18d7dc61c393?ixlib=rb-4.0.3&auto=format&fit=crop&w=2100&q=80') center/cover no-repeat;
-      height: 90vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      color: white;
-    }
-    header::after {
-      content: "";
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0, 0, 0, 0.6);
-      z-index: 0;
-    }
-    header .container {
-      position: relative;
-      z-index: 1;
-      max-width: 700px;
-      padding: 1rem;
-    }
-    header h1 { font-size: 3rem; font-weight: 800; margin: 0 0 1rem; }
-    header p { font-size: 1.25rem; margin-bottom: 2rem; }
-    .cta {
-      background: #e86e2c;
-      color: white;
-      padding: 0.75rem 1.5rem;
-      font-weight: bold;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      font-size: 1rem;
-      text-decoration: none;
-    }
-    nav {
-      background: #0f172a;
-      padding: 1rem 2rem;
-      color: white;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+    body { font-family: 'Inter', sans-serif; margin: 0; background: #f5f5f4; color: #1f2937; }
+    nav { background: #0f172a; padding: 1rem 2rem; color: white; display: flex; justify-content: space-between; align-items: center; }
     nav a { color: white; text-decoration: none; margin-left: 2rem; font-weight: 600; }
     nav a:hover { color: #facc15; }
-    .services-section {
-      padding: 4rem 2rem;
-      max-width: 1100px;
-      margin: auto;
+    header {
+      background: url('https://images.unsplash.com/photo-1565182999561-18d7dc61c393?ixlib=rb-4.0.3&auto=format&fit=crop&w=2100&q=80') center/cover no-repeat;
+      height: 90vh; display: flex; align-items: center; justify-content: center; text-align: center; color: white; position: relative;
+    }
+    header::after { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 0; }
+    header .container { position: relative; z-index: 1; max-width: 700px; padding: 1rem; }
+    header h1 { font-size: 3rem; font-weight: 800; margin-bottom: 1rem; }
+    header p { font-size: 1.25rem; margin-bottom: 2rem; }
+    .cta {
+      background: #e86e2c; color: white; padding: 0.75rem 1.5rem; font-weight: bold;
+      border: none; border-radius: 8px; cursor: pointer; font-size: 1rem; text-decoration: none;
+    }
+    .services-section, .calculator-section, .estimate-form-section {
+      padding: 4rem 2rem; max-width: 1100px; margin: auto;
     }
     .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;
     }
     .services-grid div {
-      background: white;
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.05);
-      cursor: pointer;
-      transition: transform 0.2s ease;
+      background: white; padding: 2rem; border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.05); transition: 0.2s ease; cursor: pointer;
     }
-    .services-grid div:hover {
-      transform: translateY(-5px);
-      background: #fef3ec;
-    }
-    .calculator-section, .estimate-form-section {
-      max-width: 600px;
-      margin: 3rem auto;
-      background: white;
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.05);
-    }
-    .calculator-section label, .estimate-form-section label {
-      display: block;
-      margin-top: 1rem;
-    }
-    .calculator-section input, .calculator-section select, .estimate-form-section input, .estimate-form-section select, .estimate-form-section textarea {
-      width: 100%;
-      padding: 0.75rem;
-      margin: 0.5rem 0;
-      border-radius: 6px;
-      border: 1px solid #ccc;
+    .services-grid div:hover { transform: translateY(-5px); background: #fef3ec; }
+    label { display: block; margin-top: 1rem; font-weight: 600; }
+    input, select, textarea {
+      width: 100%; padding: 0.75rem; margin: 0.5rem 0;
+      border-radius: 6px; border: 1px solid #ccc;
     }
     button.submit {
-      background: #e86e2c;
-      color: white;
-      padding: 1rem;
-      font-size: 1rem;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      width: 100%;
-      margin-top: 1rem;
+      background: #e86e2c; color: white; padding: 1rem; font-size: 1rem;
+      border: none; border-radius: 6px; cursor: pointer; width: 100%; margin-top: 1rem;
     }
     .calculator-result {
-      text-align: center;
-      font-size: 1.25rem;
-      margin-top: 1.5rem;
-      color: #1d4ed8;
+      text-align: center; font-size: 1.25rem; margin-top: 1.5rem; color: #1d4ed8;
     }
     footer {
-      background: #0f172a;
-      color: white;
-      padding: 2rem;
-      text-align: center;
-      font-size: 0.9rem;
+      background: #0f172a; color: white; padding: 2rem; text-align: center; font-size: 0.9rem;
     }
   </style>
 </head>
 <body>
+
   <nav>
     <div><strong>BUILDT Solutions</strong></div>
     <div>
@@ -154,38 +85,38 @@
   <header>
     <div class="container">
       <h1>Luxury Construction, Beautiful Finished Homes</h1>
-      <p>Elite Project Oversight & Contractor Dispatch</p>
-      <a href="#services" class="cta">See Our Services</a>
+      <p>Elite Project Oversight & Contractor Dispatch in the Central Valley</p>
+      <a href="#services" class="cta">Explore Our Services</a>
     </div>
   </header>
 
   <section class="services-section" id="services">
     <h2>Our Services</h2>
     <div class="services-grid">
-      <div><h3>Project Management</h3><p>Full-scope oversight from blueprint to final inspection—budgeting, scheduling, quality control, and contractor coordination all handled under one roof.</p></div>
-      <div><h3>Contractor Dispatch</h3><p>Need help fast? We dispatch vetted pros with the right experience for your job—licensed, reliable, and ready to build.</p></div>
-      <div><h3>Permit Oversight</h3><p>Skip the red tape. We manage your permits, applications, and city inspections so your project doesn’t stall out.</p></div>
-      <div><h3>Site Supervision</h3><p>Your eyes and ears on-site. We enforce timelines, check contractor performance, and report updates to you in real time.</p></div>
-      <div><h3>Luxury Home Renovation</h3><p>We specialize in high-end remodeling and renovations—kitchens, estates, and legacy builds that need white-glove service.</p></div>
-      <div><h3>Design Build Consulting</h3><p>We align your design team and contractors early so your vision doesn’t get lost in translation—or cost overruns.</p></div>
-      <div><h3>Commercial Tenant Improvement</h3><p>From office fit-outs to retail remodels, we manage your commercial project without interrupting your operations.</p></div>
-      <div><h3>HOA & Multifamily Projects</h3><p>We coordinate repairs, upgrades, and ongoing improvements across townhomes, apartments, and shared community builds.</p></div>
-      <div><h3>Remote Project Support</h3><p>Not on-site? We are. Get boots-on-the-ground reporting, inspections, and walkthroughs—no matter where you live.</p></div>
+      <div><h3>Project Management</h3><p>From blueprint to punch list, we handle every phase with scheduling, budgeting, and contractor accountability built in.</p></div>
+      <div><h3>Contractor Dispatch</h3><p>Need a pro fast? We send out vetted, skilled contractors for jobs of any scale. No guesswork.</p></div>
+      <div><h3>Permit Oversight</h3><p>Don't get stuck in city paperwork. We manage permit applications, updates, and inspector timelines.</p></div>
+      <div><h3>Site Supervision</h3><p>Real-time eyes on your job site. Daily progress tracking, accountability, and quality assurance.</p></div>
+      <div><h3>Luxury Home Renovation</h3><p>Custom kitchens, estate remodels, or full-house reimaginings. Built to elevate your lifestyle.</p></div>
+      <div><h3>Design-Build Consulting</h3><p>We connect your design and build process early—cutting delays, saving money, and aligning vision from day one.</p></div>
+      <div><h3>Commercial Tenant Improvement</h3><p>Retail, medical, and office TIs managed smoothly and discreetly—built around your business hours.</p></div>
+      <div><h3>HOA & Multifamily Projects</h3><p>Exterior rehabs, shared spaces, and ongoing unit improvements. Coordinated across communities.</p></div>
+      <div><h3>Remote Project Support</h3><p>You don’t need to be local—we’ll supervise your job like you are. Virtual walkthroughs & reports included.</p></div>
     </div>
   </section>
 
   <section class="calculator-section" id="calculator">
-    <h2>Project Cost Calculator</h2>
+    <h2>Instant Project Estimate</h2>
     <label for="squareFeet">Project Size (sq ft)</label>
     <input type="number" id="squareFeet" placeholder="e.g. 2500">
 
-    <label for="complexity">Complexity Level (1–5)</label>
+    <label for="complexity">Complexity Level</label>
     <select id="complexity">
-      <option value="1">1 – Basic Remodel (simple paint/flooring)</option>
-      <option value="2">2 – Light Renovation (minor layout changes)</option>
-      <option value="3">3 – Standard Build (bath/kitchen renovation)</option>
-      <option value="4">4 – Full Gut or Add-on</option>
-      <option value="5">5 – Custom/Luxury Build (unique finishes or permits)</option>
+      <option value="1">1 – Basic Remodel (paint/flooring)</option>
+      <option value="2">2 – Light Renovation (cosmetic updates)</option>
+      <option value="3">3 – Full Kitchen/Bath Remodel</option>
+      <option value="4">4 – Structural Changes or Add-on</option>
+      <option value="5">5 – Luxury Custom Build</option>
     </select>
 
     <button onclick="calculate()">Estimate Cost</button>
@@ -194,47 +125,61 @@
 
   <section class="estimate-form-section" id="estimate">
     <h2>Request a Personalized Estimate</h2>
-    <label>Name</label>
-    <input type="text" placeholder="Your full name">
-    <label>Email</label>
-    <input type="email" placeholder="you@example.com">
-    <label>Phone</label>
-    <input type="tel" placeholder="559-302-0057">
-    <label>Service Needed</label>
-    <select>
-      <option>Project Management</option>
-      <option>Contractor Dispatch</option>
-      <option>Permit Oversight</option>
-      <option>Luxury Renovation</option>
-      <option>Site Supervision</option>
-    </select>
-    <label>Square Footage</label>
-    <input type="number" placeholder="Estimated size">
-    <label>Notes</label>
-    <textarea placeholder="Tell us about your project"></textarea>
-    <button class="submit">Submit Request</button>
+    <form action="https://formsubmit.co/support@buildtright.com" method="POST">
+      <input type="hidden" name="_next" value="https://yourdomain.com/thank-you.html">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_subject" value="New Estimate Request from BUILDT Site">
+
+      <label>Name</label>
+      <input type="text" name="name" required>
+
+      <label>Email</label>
+      <input type="email" name="email" required>
+
+      <label>Phone</label>
+      <input type="tel" name="phone">
+
+      <label>Service Needed</label>
+      <select name="service" required>
+        <option disabled selected>Select a service</option>
+        <option>Project Management</option>
+        <option>Contractor Dispatch</option>
+        <option>Permit Oversight</option>
+        <option>Luxury Renovation</option>
+        <option>Site Supervision</option>
+        <option>Design Build Consulting</option>
+        <option>Commercial TI</option>
+        <option>Multifamily</option>
+        <option>Remote Support</option>
+      </select>
+
+      <label>Square Footage</label>
+      <input type="number" name="square_footage">
+
+      <label>Additional Notes</label>
+      <textarea name="notes" rows="4" placeholder="What are you working on?"></textarea>
+
+      <button class="submit" type="submit">Submit Request</button>
+    </form>
   </section>
-<section style="padding: 2rem; background-color: #fef3ec;">
-  <p style="font-size: 0.9rem; color: #555;">
-    Looking for a trusted contractor near you? BUILDT Solutions offers expert project management, luxury renovations, tile installs, and builder dispatch services across Visalia, Tulare County, and the Central Valley. Our clients call us the best construction company in town — for good reason. Whether you're searching for a “renovator near me” or a “high-end contractor Visalia,” we deliver unmatched service. From kitchens and bathrooms to full home remodels, we've got you covered.
-  </p>
-</section>
+
   <footer>
-    Contact us at <a href="mailto:support@buildtright.com" style="color: #facc15; text-decoration: underline;">support@buildtright.com</a> or call <a href="tel:5593020057" style="color: #facc15; text-decoration: underline;">559-302-0057</a><br>
-    BUILDT Solutions © 2025. All rights reserved.
+    Contact us at <a href="mailto:support@buildtright.com" style="color:#facc15;">support@buildtright.com</a>
+    or call <a href="tel:5593020057" style="color:#facc15;">559-302-0057</a><br>
+    Serving Visalia, Tulare County, and the Central Valley<br>
+    © 2025 BUILDT Solutions
   </footer>
 
   <script>
     function calculate() {
       const sqft = parseFloat(document.getElementById('squareFeet').value);
-      const complexity = parseFloat(document.getElementById('complexity').value);
-      if (!sqft || !complexity) {
-        document.getElementById('result').textContent = 'Please enter valid inputs.';
+      const level = parseFloat(document.getElementById('complexity').value);
+      if (!sqft || !level) {
+        document.getElementById('result').textContent = 'Please enter both fields.';
         return;
       }
-      const pricePerSqFt = 3 + complexity * 1.5;
-      const total = (sqft * pricePerSqFt).toFixed(2);
-      document.getElementById('result').textContent = `Estimated Project Cost: $${total}`;
+      const price = (sqft * (3 + level * 1.5)).toFixed(2);
+      document.getElementById('result').textContent = `Estimated Cost: $${price}`;
     }
   </script>
 </body>
