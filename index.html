@@ -1,205 +1,57 @@
+from reportlab.lib.pagesizes import LETTER
+from reportlab.pdfgen import canvas
+from reportlab.lib import colors
 from pathlib import Path
 
-# Define the output HTML file path
-output_path = Path("/mnt/data/index_buildtright_updated.html")
+# Define output path
+pdf_path = Path("/mnt/data/BUILDT_Project_Pricing_Guide.pdf")
 
-# HTML content with transitions, testimonials, and before/after sections
-html_content = """
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>BuildtRight™ | Central Valley Project Management</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Inter:wght@400;600&display=swap" rel="stylesheet">
-  <style>
-    * {
-      box-sizing: border-box;
-      transition: all 0.3s ease-in-out;
-    }
-    body {
-      margin: 0;
-      font-family: 'Inter', sans-serif;
-      background-color: #f8f8f5;
-      color: #222;
-    }
-    header {
-      background-color: #111;
-      color: #fff;
-      padding: 30px;
-      text-align: center;
-    }
-    header h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.8rem;
-      margin: 0;
-    }
-    header p {
-      margin: 10px 0 0;
-      font-size: 1.2rem;
-      font-weight: 300;
-    }
-    .container {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 40px 20px;
-    }
-    .highlight {
-      background-color: #ffeecf;
-      padding: 10px 20px;
-      border-left: 5px solid #ff9900;
-      margin: 30px 0;
-      font-weight: 600;
-    }
-    section {
-      margin-bottom: 40px;
-    }
-    h2 {
-      font-size: 2rem;
-      font-family: 'Playfair Display', serif;
-      margin-bottom: 10px;
-    }
-    ul {
-      list-style-type: square;
-      padding-left: 20px;
-    }
-    .cta {
-      background-color: #000;
-      color: #fff;
-      text-align: center;
-      padding: 50px 20px;
-    }
-    .cta h2 {
-      margin: 0;
-      font-size: 2rem;
-    }
-    .cta p {
-      font-size: 1.2rem;
-      margin: 15px 0 30px;
-    }
-    .cta a {
-      background-color: #ff9900;
-      color: #000;
-      text-decoration: none;
-      font-weight: 600;
-      padding: 15px 30px;
-      border-radius: 8px;
-      font-size: 1.1rem;
-    }
-    form {
-      background-color: #fff;
-      padding: 30px;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.05);
-    }
-    form input, form textarea {
-      width: 100%;
-      padding: 15px;
-      margin: 10px 0;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      font-size: 1rem;
-    }
-    form button {
-      background-color: #000;
-      color: #fff;
-      padding: 15px;
-      border: none;
-      width: 100%;
-      border-radius: 6px;
-      font-size: 1rem;
-      cursor: pointer;
-    }
-    .testimonial, .before-after {
-      background-color: #fff;
-      padding: 20px;
-      border-left: 5px solid #444;
-      margin: 20px 0;
-      border-radius: 8px;
-      box-shadow: 0 0 8px rgba(0,0,0,0.05);
-    }
-    .testimonial p, .before-after p {
-      margin: 10px 0;
-    }
-    .before-after img {
-      width: 48%;
-      border-radius: 8px;
-      margin-right: 4%;
-    }
-    .before-after img:last-child {
-      margin-right: 0;
-    }
-    footer {
-      text-align: center;
-      padding: 30px;
-      background-color: #eee;
-      font-size: 0.9rem;
-      color: #444;
-    }
-  </style>
-</head>
-<body>
+# Create PDF
+c = canvas.Canvas(str(pdf_path), pagesize=LETTER)
+width, height = LETTER
 
-<header>
-  <h1>BuildtRight™</h1>
-  <p>Visalia’s Go-To Project Management Concierge</p>
-</header>
+# Header
+c.setFillColor(colors.HexColor("#e86e2c"))
+c.rect(0, height - 100, width, 100, fill=1)
+c.setFillColor(colors.white)
+c.setFont("Helvetica-Bold", 24)
+c.drawString(40, height - 60, "BUILDT Solutions")
+c.setFont("Helvetica", 14)
+c.drawString(40, height - 80, "Project Pricing Guide - 2025")
 
-<div class="container">
-  <div class="highlight">
-    🎯 Now offering 50% OFF for Founding Clients in Visalia, Tulare & Central Valley
-  </div>
+# Body Title
+c.setFillColor(colors.black)
+c.setFont("Helvetica-Bold", 18)
+c.drawString(40, height - 130, "Sample Project Estimates")
 
-  <section>
-    <h2>What We Handle</h2>
-    <ul>
-      <li>🏠 Home Renovation Oversight</li>
-      <li>🚚 Move-In/Move-Out Project Coordination</li>
-      <li>🧼 Airbnb Turnover Systems</li>
-      <li>💼 Small Biz Launch & Setup</li>
-      <li>🗂️ Garage Clean-Outs & Estate Projects</li>
-    </ul>
-  </section>
+# Kitchen Remodel
+c.setFont("Helvetica-Bold", 14)
+c.drawString(40, height - 160, "Luxury Kitchen Remodel")
+c.setFont("Helvetica", 12)
+c.drawString(60, height - 175, "• Starting at $35,000")
+c.drawString(60, height - 190, "• Includes demo, layout, cabinets, quartz, appliances, and install")
 
-  <section class="before-after">
-    <h2>Before & After</h2>
-    <div>
-      <img src="https://via.placeholder.com/400x250?text=Before+Photo" alt="Before" />
-      <img src="https://via.placeholder.com/400x250?text=After+Photo" alt="After" />
-    </div>
-    <p>Every transformation tells a story. Let us make your next one stress-free and stunning.</p>
-  </section>
+# Full-Home Renovation
+c.setFont("Helvetica-Bold", 14)
+c.drawString(40, height - 220, "Full-Home Renovation (2,500 sq ft)")
+c.setFont("Helvetica", 12)
+c.drawString(60, height - 235, "• $90,000–$150,000 depending on scope and finishes")
+c.drawString(60, height - 250, "• Full interior gut, electrical, plumbing, drywall, paint, and flooring")
 
-  <section class="testimonial">
-    <h2>Client Testimonial</h2>
-    <p>“BuildtRight™ made our entire reno smooth and actually enjoyable. We were never left guessing what was next. Worth every penny — even at full price.”</p>
-    <p><strong>- Sarah R., Tulare</strong></p>
-  </section>
+# Project Management Only
+c.setFont("Helvetica-Bold", 14)
+c.drawString(40, height - 280, "Project Management Only")
+c.setFont("Helvetica", 12)
+c.drawString(60, height - 295, "• Flat rate: $3,000–$8,000")
+c.drawString(60, height - 310, "• Includes scheduling, reporting, contractor coordination")
 
-  <section>
-    <h2>Apply for the Founding Client Discount</h2>
-    <form name="lead-form" method="POST" data-netlify="true">
-      <input type="text" name="name" placeholder="Full Name" required>
-      <input type="email" name="email" placeholder="Email Address" required>
-      <input type="tel" name="phone" placeholder="Phone Number (optional)">
-      <input type="text" name="project-type" placeholder="What kind of project is this?" required>
-      <textarea name="details" rows="5" placeholder="Tell us more about your timeline, goals, and budget..." required></textarea>
-      <button type="submit">Apply for 50% Off</button>
-    </form>
-  </section>
-</div>
+# Footer
+c.setFont("Helvetica-Oblique", 10)
+c.drawString(40, 50, "Estimates are based on historical project data and may vary. Contact us for a tailored quote.")
+c.setFont("Helvetica-Bold", 10)
+c.drawString(40, 35, "support@buildtright.com | 559-302-0057 | Visalia, CA")
 
-<div class="cta">
-  <h2>Let’s Build It Right.</h2>
-  <p>Booking 3 discounted projects this month only. Don’t miss your spot.</p>
-  <a href="#lead-form">Apply Now</a>
-</div>
+c.showPage()
+c.save()
 
-<footer>
-  © 2025 BuildtRight™ — Serving Visalia, Tulare & Beyond
-</footer>
-
-</body>
-</html>
-"""
-
+pdf_path.name
