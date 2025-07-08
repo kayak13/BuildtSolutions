@@ -1,57 +1,169 @@
-from reportlab.lib.pagesizes import LETTER
-from reportlab.pdfgen import canvas
-from reportlab.lib import colors
-from pathlib import Path
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BUILDT Solutions | Services & Estimates</title>
+  <meta name="description" content="Luxury contractor and project management services in Visalia and Tulare County. Request an estimate online.">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+  <style>
+    body { font-family: 'Inter', sans-serif; margin: 0; background: #f5f5f4; color: #1f2937; }
+    nav { background: #0f172a; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; color: white; }
+    nav a { color: white; text-decoration: none; margin-left: 2rem; font-weight: 600; }
+    nav a:hover { color: #facc15; }
+    header {
+      position: relative;
+      background: url('https://images.unsplash.com/photo-1565182999561-18d7dc61c393?ixlib=rb-4.0.3&auto=format&fit=crop&w=2100&q=80') center/cover no-repeat;
+      height: 90vh; display: flex; align-items: center; justify-content: center; text-align: center; color: white;
+    }
+    header::after {
+      content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.6); z-index: 0;
+    }
+    header .container {
+      position: relative; z-index: 1; max-width: 700px; padding: 1rem;
+    }
+    header h1 { font-size: 3rem; font-weight: 800; margin-bottom: 1rem; }
+    header p { font-size: 1.25rem; margin-bottom: 2rem; }
+    .cta {
+      background: #e86e2c; color: white; padding: 0.75rem 1.5rem;
+      font-weight: bold; border: none; border-radius: 8px;
+      cursor: pointer; font-size: 1rem; text-decoration: none;
+    }
+    .section { padding: 4rem 2rem; max-width: 1100px; margin: auto; }
+    .services-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;
+    }
+    .services-grid div {
+      background: white; padding: 2rem; border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.05); transition: 0.2s ease;
+    }
+    .services-grid div:hover { background: #fef3ec; transform: translateY(-5px); }
+    form { background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.05); }
+    label { display: block; margin-top: 1rem; font-weight: 600; }
+    input, select, textarea {
+      width: 100%; padding: 0.75rem; margin-top: 0.5rem;
+      border-radius: 6px; border: 1px solid #ccc;
+    }
+    button.submit {
+      background: #e86e2c; color: white; padding: 1rem;
+      font-size: 1rem; border: none; border-radius: 6px;
+      cursor: pointer; width: 100%; margin-top: 1rem;
+    }
+    .download-guide {
+      text-align: center;
+      padding: 4rem 2rem;
+      background: #fff;
+    }
+    .download-guide a {
+      background: #e86e2c;
+      color: white;
+      padding: 1rem 2rem;
+      font-weight: bold;
+      border-radius: 8px;
+      text-decoration: none;
+    }
+    footer {
+      background: #0f172a; color: white; padding: 2rem;
+      text-align: center; font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
 
-# Define output path
-pdf_path = Path("/mnt/data/BUILDT_Project_Pricing_Guide.pdf")
+<nav>
+  <div><strong>BUILDT Solutions</strong></div>
+  <div>
+    <a href="#services">Services</a>
+    <a href="#estimate">Estimate</a>
+    <a href="/assets/BUILDT_Project_Pricing_Guide.pdf" target="_blank">Pricing Guide</a>
+  </div>
+</nav>
 
-# Create PDF
-c = canvas.Canvas(str(pdf_path), pagesize=LETTER)
-width, height = LETTER
+<header>
+  <div class="container">
+    <h1>Luxury Construction, Beautiful Finished Homes</h1>
+    <p>Elite Project Oversight & Contractor Dispatch in the Central Valley</p>
+    <a href="#services" class="cta">Explore Our Services</a>
+  </div>
+</header>
 
-# Header
-c.setFillColor(colors.HexColor("#e86e2c"))
-c.rect(0, height - 100, width, 100, fill=1)
-c.setFillColor(colors.white)
-c.setFont("Helvetica-Bold", 24)
-c.drawString(40, height - 60, "BUILDT Solutions")
-c.setFont("Helvetica", 14)
-c.drawString(40, height - 80, "Project Pricing Guide - 2025")
+<section id="services" class="section">
+  <h2>Our Services</h2>
+  <div class="services-grid">
+    <div><h3>Project Management</h3><p>Blueprint to punch list — full oversight.</p></div>
+    <div><h3>Contractor Dispatch</h3><p>Get the right pros on-site fast.</p></div>
+    <div><h3>Permit Oversight</h3><p>We handle the city paperwork.</p></div>
+    <div><h3>Luxury Renovations</h3><p>High-end remodels, kitchens, estates.</p></div>
+  </div>
+</section>
 
-# Body Title
-c.setFillColor(colors.black)
-c.setFont("Helvetica-Bold", 18)
-c.drawString(40, height - 130, "Sample Project Estimates")
+<section class="section">
+  <h2>Instant Project Estimate</h2>
+  <label for="squareFeet">Project Size (sq ft)</label>
+  <input type="number" id="squareFeet" placeholder="e.g. 2500">
+  <label for="complexity">Complexity Level</label>
+  <select id="complexity">
+    <option value="1">1 – Basic Remodel</option>
+    <option value="2">2 – Light Renovation</option>
+    <option value="3">3 – Full Kitchen/Bath</option>
+    <option value="4">4 – Structural/Add-on</option>
+    <option value="5">5 – Luxury Custom Build</option>
+  </select>
+  <button onclick="calculate()" class="submit">Estimate Cost</button>
+  <p id="result" style="text-align:center;margin-top:1rem;font-weight:600;"></p>
+</section>
 
-# Kitchen Remodel
-c.setFont("Helvetica-Bold", 14)
-c.drawString(40, height - 160, "Luxury Kitchen Remodel")
-c.setFont("Helvetica", 12)
-c.drawString(60, height - 175, "• Starting at $35,000")
-c.drawString(60, height - 190, "• Includes demo, layout, cabinets, quartz, appliances, and install")
+<section id="estimate" class="section">
+  <h2>Request a Personalized Estimate</h2>
+  <form action="https://formsubmit.co/support@buildtright.com" method="POST">
+    <input type="hidden" name="_next" value="https://yourdomain.com/thank-you.html">
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_subject" value="New Estimate Request from BUILDT Site">
+    <label>Name</label><input type="text" name="name" required>
+    <label>Email</label><input type="email" name="email" required>
+    <label>Phone</label><input type="tel" name="phone">
+    <label>Service Needed</label>
+    <select name="service" required>
+      <option disabled selected>Select a service</option>
+      <option>Project Management</option>
+      <option>Contractor Dispatch</option>
+      <option>Permit Oversight</option>
+      <option>Luxury Renovation</option>
+    </select>
+    <label>Square Footage</label><input type="number" name="square_footage">
+    <label>Additional Notes</label><textarea name="notes" rows="4"></textarea>
+    <button class="submit" type="submit">Submit Request</button>
+  </form>
+</section>
 
-# Full-Home Renovation
-c.setFont("Helvetica-Bold", 14)
-c.drawString(40, height - 220, "Full-Home Renovation (2,500 sq ft)")
-c.setFont("Helvetica", 12)
-c.drawString(60, height - 235, "• $90,000–$150,000 depending on scope and finishes")
-c.drawString(60, height - 250, "• Full interior gut, electrical, plumbing, drywall, paint, and flooring")
+<section class="download-guide">
+  <h2>📄 BUILDT Project Pricing Guide</h2>
+  <p>Transparent 2025 pricing for remodeling, PM, and luxury builds.</p>
+  <a href="/assets/BUILDT_Project_Pricing_Guide.pdf" target="_blank">Download PDF</a>
+</section>
 
-# Project Management Only
-c.setFont("Helvetica-Bold", 14)
-c.drawString(40, height - 280, "Project Management Only")
-c.setFont("Helvetica", 12)
-c.drawString(60, height - 295, "• Flat rate: $3,000–$8,000")
-c.drawString(60, height - 310, "• Includes scheduling, reporting, contractor coordination")
+<footer>
+  Contact us at <a href="mailto:support@buildtright.com" style="color:#facc15;">support@buildtright.com</a>
+  or call <a href="tel:5593020057" style="color:#facc15;">559-302-0057</a><br>
+  Serving Visalia, Tulare County, and the Central Valley<br>
+  © 2025 BUILDT Solutions
+</footer>
 
-# Footer
-c.setFont("Helvetica-Oblique", 10)
-c.drawString(40, 50, "Estimates are based on historical project data and may vary. Contact us for a tailored quote.")
-c.setFont("Helvetica-Bold", 10)
-c.drawString(40, 35, "support@buildtright.com | 559-302-0057 | Visalia, CA")
-
-c.showPage()
-c.save()
-
-pdf_path.name
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init();
+  function calculate() {
+    const sqft = parseFloat(document.getElementById('squareFeet').value);
+    const level = parseFloat(document.getElementById('complexity').value);
+    if (!sqft || !level) {
+      document.getElementById('result').textContent = 'Please enter both fields.';
+      return;
+    }
+    const price = (sqft * (3 + level * 1.5)).toFixed(2);
+    document.getElementById('result').textContent = `Estimated Cost: $${price}`;
+  }
+</script>
+</body>
+</html>
