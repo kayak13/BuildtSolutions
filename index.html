@@ -3,109 +3,342 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BUILDT Solutions | Visalia Contractor</title>
+  <title>BUILDT Solutions | Services & Estimates</title>
+  <meta name="description" content="Luxury contractor and project management services in Visalia and Tulare County. Request an estimate online.">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
   <style>
-    body { font-family: sans-serif; margin: 0; background: #f5f5f4; color: #1f2937; }
-    nav { background: #0f172a; color: white; padding: 1rem 2rem; display: flex; justify-content: space-between; }
-    nav a { color: white; margin-left: 1.5rem; text-decoration: none; font-weight: bold; }
+    body { font-family: 'Inter', sans-serif; margin: 0; background: #f5f5f4; color: #1f2937; }
+    nav { background: #0f172a; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; color: white; }
+    nav a { color: white; text-decoration: none; margin-left: 2rem; font-weight: 600; }
     nav a:hover { color: #facc15; }
+    nav img { transition: transform 0.2s; }
+    nav img:hover { transform: scale(1.06) rotate(-2deg); }
     header {
-      background: url('assets/hero-background.jpg') center/cover no-repeat;
-      height: 80vh;
-      color: white; text-align: center;
-      display: flex; flex-direction: column;
-      justify-content: center; position: relative;
+      position: relative;
+      background: linear-gradient(rgba(16, 24, 39, 0.55), rgba(16, 24, 39, 0.55)),
+        url('https://images.unsplash.com/photo-1565182999561-18d7dc61c393?ixlib=rb-4.0.3&auto=format&fit=crop&w=2100&q=80') center/cover no-repeat;
+      height: 90vh; display: flex; align-items: center; justify-content: center; text-align: center; color: white;
     }
     header::after {
-      content: ""; position: absolute;
-      top: 0; left: 0; width: 100%; height: 100%;
-      background: rgba(0,0,0,0.6); z-index: 0;
+      content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.6); z-index: 0;
     }
-    header .container { position: relative; z-index: 1; }
-    .container { padding: 2rem; max-width: 900px; margin: auto; }
-    .cta { background: #e86e2c; padding: 0.75rem 1.5rem; border: none; border-radius: 8px; color: white; font-weight: bold; text-decoration: none; }
-    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin-top: 2rem; }
-    .services-grid div { background: white; padding: 1rem; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
-    form input, form select, form textarea { width: 100%; padding: 0.75rem; margin-top: 0.5rem; margin-bottom: 1rem; border: 1px solid #ccc; border-radius: 6px; }
-    form button { background: #e86e2c; color: white; padding: 1rem; border: none; border-radius: 6px; width: 100%; }
-    footer { background: #0f172a; color: white; text-align: center; padding: 2rem; margin-top: 3rem; }
-    img.gallery-img { width: 300px; border-radius: 8px; }
+    header .container {
+      position: relative; z-index: 1; max-width: 700px; padding: 1rem;
+    }
+    header h1 { font-size: 3rem; font-weight: 800; margin-bottom: 1rem; }
+    header p { font-size: 1.25rem; margin-bottom: 2rem; }
+    .cta {
+      background: #e86e2c; color: white; padding: 0.75rem 1.5rem;
+      font-weight: bold; border: none; border-radius: 8px;
+      cursor: pointer; font-size: 1rem; text-decoration: none;
+      transition: background 0.2s, box-shadow 0.2s;
+    }
+    .cta:hover {
+      background: #ff9136 !important;
+      box-shadow: 0 2px 12px rgba(232, 110, 44, 0.18);
+    }
+    .section { padding: 4rem 2rem; max-width: 1100px; margin: auto; }
+    .services-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;
+    }
+    .services-grid div {
+      background: white; padding: 2rem; border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.05); transition: 0.2s ease;
+    }
+    .services-grid div:hover { background: #fef3ec; transform: translateY(-5px); }
+    .why-choose-list {
+      list-style:none;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;font-size:1.1rem;
+      max-width: 700px; margin: 2rem auto 0 auto;
+    }
+    @media (max-width: 700px) {
+      .why-choose-list { grid-template-columns:1fr; }
+      .gallery-row { flex-direction: column !important; }
+    }
+    form { background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.05); }
+    label { display: block; margin-top: 1rem; font-weight: 600; }
+    input, select, textarea {
+      width: 100%; padding: 0.75rem; margin-top: 0.5rem;
+      border-radius: 6px; border: 1px solid #ccc;
+    }
+    button.submit {
+      background: #e86e2c; color: white; padding: 1rem;
+      font-size: 1rem; border: none; border-radius: 6px;
+      cursor: pointer; width: 100%; margin-top: 1rem;
+      transition: background 0.2s, box-shadow 0.2s;
+    }
+    button.submit:hover {
+      background: #ff9136 !important;
+      box-shadow: 0 2px 12px rgba(232, 110, 44, 0.18);
+    }
+    .download-guide {
+      text-align: center;
+      padding: 4rem 2rem;
+      background: #fff;
+    }
+    .download-guide a {
+      background: #e86e2c;
+      color: white;
+      padding: 1rem 2rem;
+      font-weight: bold;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.2s, box-shadow 0.2s;
+    }
+    .download-guide a:hover {
+      background: #ff9136 !important;
+      box-shadow: 0 2px 12px rgba(232, 110, 44, 0.18);
+    }
+    .financing-banner {
+      background: #facc15; color: #1f2937; text-align: center; padding: 2rem 1rem; font-size: 1.5rem; font-weight: bold; letter-spacing: 1px;
+    }
+    .gallery-row {
+      display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap;
+    }
+    .gallery-row img {
+      border-radius:10px; width: 300px; box-shadow:0 4px 16px rgba(0,0,0,0.07);
+      object-fit:cover;
+      max-width:100%;
+    }
+    .case-study-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem;
+    }
+    .case-study-card {
+      background: white; border-radius: 12px; padding: 2rem; box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+    }
+    .testimonials-grid {
+      display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:2rem;
+    }
+    .testimonial {
+      background:white;padding:2rem;border-radius:12px;box-shadow:0 2px 10px rgba(0,0,0,0.05);
+    }
+    .social-btns {
+      text-align:center; margin:2rem 0;
+    }
+    .social-btns a {
+      margin:0 1rem; display:inline-block;
+    }
+    .social-btns a img {
+      vertical-align:middle;
+      height:40px;
+    }
+    .social-btns a.email, .social-btns a.call {
+      background:#e86e2c;color:white;padding:0.5em 1em;border-radius:6px;text-decoration:none;font-weight:bold; font-size:1.1rem;
+      transition: background 0.2s;
+    }
+    .social-btns a.call {
+      background:#facc15;color:#1f2937;
+    }
+    .social-btns a.email:hover { background:#ff9136; }
+    .social-btns a.call:hover { background:#ffe066; }
+    footer {
+      background: #0f172a; color: white; padding: 2rem;
+      text-align: center; font-size: 0.9rem;
+    }
+    footer a { color:#facc15; text-decoration: underline; }
+    /* Responsive improvements */
+    @media (max-width: 900px) {
+      .section { padding: 2rem 1rem;}
+      header h1 { font-size: 2.2rem; }
+      .gallery-row img { width: 100%; max-width: 330px;}
+    }
+    @media (max-width: 600px) {
+      nav { flex-direction: column; gap: 1rem;}
+      .services-grid, .case-study-grid, .testimonials-grid { grid-template-columns: 1fr; }
+      .why-choose-list { grid-template-columns:1fr; }
+    }
   </style>
 </head>
 <body>
 
+<!-- Navbar with logo -->
 <nav>
-  <div><strong>BUILDT Solutions</strong></div>
+  <div style="display:flex;align-items:center;">
+    <img src="/assets/logo.png" alt="BUILDT Solutions Logo" style="height:48px; margin-right:1rem;">
+    <strong style="font-size:1.5rem;">BUILDT Solutions</strong>
+  </div>
   <div>
     <a href="#services">Services</a>
     <a href="#estimate">Estimate</a>
-    <a href="#gallery">Gallery</a>
-    <a href="assets/BUILDT_Project_Pricing_Guide.pdf" target="_blank">View PDF</a>
+    <a href="/assets/BUILDT_Project_Pricing_Guide.pdf" target="_blank">Pricing Guide</a>
   </div>
 </nav>
 
+<!-- Hero Section -->
 <header>
   <div class="container">
     <h1>Luxury Construction, Beautiful Finished Homes</h1>
     <p>Elite Project Oversight & Contractor Dispatch in the Central Valley</p>
-    <a href="#services" class="cta">Explore Services</a>
+    <a href="#services" class="cta">Explore Our Services</a>
   </div>
 </header>
 
-<section class="container" id="services">
+<!-- Trust Badges & Associations -->
+<section style="background:#fff8e1; padding:2rem 0; text-align:center;">
+  <img src="https://img.icons8.com/color/48/000000/verified-badge.png" alt="Verified" style="vertical-align:middle;margin:0 1rem;">
+  <span style="font-weight:600; font-size:1.1rem;">Licensed & Insured Contractor</span>
+  <img src="https://img.icons8.com/ios-filled/50/fa314a/handshake-heart.png" alt="Handshake" style="vertical-align:middle;margin:0 1rem;">
+  <span style="font-size:1.1rem;">Proudly Serving Central Valley Since 2011</span>
+</section>
+
+<!-- Services -->
+<section id="services" class="section">
   <h2>Our Services</h2>
   <div class="services-grid">
-    <div><h3>Project Management</h3><p>Blueprint to punch list — we run the full job.</p></div>
-    <div><h3>Contractor Dispatch</h3><p>Need pros fast? We’ve got the crew.</p></div>
-    <div><h3>Luxury Renovation</h3><p>Estate-level builds, smart upgrades, stunning finishes.</p></div>
-    <div><h3>Permit Oversight</h3><p>We handle city nonsense so you don’t have to.</p></div>
+    <div><h3>Project Management</h3><p>Blueprint to punch list — full oversight.</p></div>
+    <div><h3>Contractor Dispatch</h3><p>Get the right pros on-site fast.</p></div>
+    <div><h3>Permit Oversight</h3><p>We handle the city paperwork.</p></div>
+    <div><h3>Luxury Renovations</h3><p>High-end remodels, kitchens, estates.</p></div>
   </div>
 </section>
 
-<section class="container" id="estimate">
+<!-- Why Choose Us -->
+<section class="section" style="background:#fff;max-width:850px;">
+  <h2 style="text-align:center;">Why Choose BUILDT?</h2>
+  <ul class="why-choose-list">
+    <li>✅ Transparent, up-front pricing</li>
+    <li>✅ Local, licensed, and insured</li>
+    <li>✅ 10+ years of Central Valley experience</li>
+    <li>✅ Fast, friendly support—real people, not robots</li>
+    <li>✅ 100s of successful projects</li>
+    <li>✅ Clean, respectful crews</li>
+  </ul>
+</section>
+
+<!-- Instant Project Estimate -->
+<section class="section">
+  <h2>Instant Project Estimate</h2>
+  <label for="squareFeet">Project Size (sq ft)</label>
+  <input type="number" id="squareFeet" placeholder="e.g. 2500">
+  <label for="complexity">Complexity Level</label>
+  <select id="complexity">
+    <option value="1">1 – Basic Remodel</option>
+    <option value="2">2 – Light Renovation</option>
+    <option value="3">3 – Full Kitchen/Bath</option>
+    <option value="4">4 – Structural/Add-on</option>
+    <option value="5">5 – Luxury Custom Build</option>
+  </select>
+  <button onclick="calculate()" class="submit">Estimate Cost</button>
+  <p id="result" style="text-align:center;margin-top:1rem;font-weight:600;"></p>
+</section>
+
+<!-- Estimate Form -->
+<section id="estimate" class="section">
   <h2>Request a Personalized Estimate</h2>
   <form action="https://formsubmit.co/support@buildtright.com" method="POST">
     <input type="hidden" name="_next" value="https://yourdomain.com/thank-you.html">
     <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_subject" value="New Estimate Request from BUILDT Site">
     <label>Name</label><input type="text" name="name" required>
     <label>Email</label><input type="email" name="email" required>
     <label>Phone</label><input type="tel" name="phone">
-    <label>Service</label>
-    <select name="service">
+    <label>Service Needed</label>
+    <select name="service" required>
+      <option disabled selected>Select a service</option>
       <option>Project Management</option>
+      <option>Contractor Dispatch</option>
+      <option>Permit Oversight</option>
       <option>Luxury Renovation</option>
     </select>
     <label>Square Footage</label><input type="number" name="square_footage">
-    <label>Notes</label><textarea name="notes" rows="4"></textarea>
-    <button type="submit">Submit Request</button>
+    <label>Additional Notes</label><textarea name="notes" rows="4"></textarea>
+    <button class="submit" type="submit">Submit Request</button>
   </form>
 </section>
 
-<section class="container" id="gallery">
-  <h2>📸 Recent Projects</h2>
-  <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-    <img src="assets/project1.jpg" alt="Project 1" class="gallery-img">
-    <img src="assets/project2.jpg" alt="Project 2" class="gallery-img">
-    <img src="assets/project3.jpg" alt="Project 3" class="gallery-img">
+<!-- Financing Banner -->
+<section class="financing-banner">
+  💳 Everyone Approved – No Matter Your Credit
+</section>
+
+<!-- Project Pricing Guide -->
+<section class="download-guide">
+  <h2>📄 BUILDT Project Pricing Guide</h2>
+  <p>Transparent 2025 pricing for remodeling, PM, and luxury builds.</p>
+  <a href="/assets/BUILDT_Project_Pricing_Guide.pdf" target="_blank">Download PDF</a>
+</section>
+
+<!-- 3-Image Gallery -->
+<section class="section" style="background: #fff;">
+  <h2 style="text-align: center;">Project Gallery</h2>
+  <div class="gallery-row">
+    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80" alt="Project 1">
+    <img src="https://images.unsplash.com/photo-1460518451285-97b6aa326961?auto=format&fit=crop&w=400&q=80" alt="Project 2">
+    <img src="https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=format&fit=crop&w=400&q=80" alt="Project 3">
   </div>
 </section>
 
-<section class="container">
-  <h2>💡 Client Case Studies</h2>
-  <p><strong>Modern Farmhouse:</strong> $85K full renovation, smart-home equipped, done in 6 weeks.</p>
-  <p><strong>Downtown Office TI:</strong> 4,000 sq ft buildout with no business downtime. On time, under budget.</p>
+<!-- Case Study Blurbs -->
+<section class="section" style="background: #f5f5f4;">
+  <h2 style="text-align: center;">Case Studies</h2>
+  <div class="case-study-grid">
+    <div class="case-study-card">
+      <h3>🏡 The Modern Manor</h3>
+      <p><strong>Scope:</strong> 3200 sq ft luxury home renovation in Visalia</p>
+      <p><strong>Result:</strong> Full kitchen & bath overhaul, city permits handled, project delivered 2 weeks early.</p>
+    </div>
+    <div class="case-study-card">
+      <h3>🏢 Downtown Office Refresh</h3>
+      <p><strong>Scope:</strong> Permit oversight & contractor dispatch for 5000 sq ft office space</p>
+      <p><strong>Result:</strong> Seamless compliance, open for business 1 month ahead of schedule.</p>
+    </div>
+    <div class="case-study-card">
+      <h3>🏠 Family Home Addition</h3>
+      <p><strong>Scope:</strong> Structural add-on & project management for expanding a growing family’s home</p>
+      <p><strong>Result:</strong> Stress-free build, on budget, all city inspections passed first try.</p>
+    </div>
+  </div>
 </section>
 
-<section style="padding: 2rem; background: #e86e2c; color: white; text-align: center;">
-  <h3>💳 Everyone Approved for Project Financing — No Matter Your Credit.</h3>
-  <p>Apply in minutes. Decisions in seconds.</p>
+<!-- Testimonials -->
+<section class="section" style="background:#f9fafb;">
+  <h2 style="text-align:center;">What Our Clients Say</h2>
+  <div class="testimonials-grid">
+    <blockquote class="testimonial">
+      <p style="font-style:italic;">"BUILDT made our remodel stress-free and finished ahead of schedule. Highly recommend!"</p>
+      <cite style="display:block;margin-top:1rem;font-weight:600;">— Jessica R., Visalia</cite>
+    </blockquote>
+    <blockquote class="testimonial">
+      <p style="font-style:italic;">"Excellent communication and top-notch workmanship. Our best contractor experience!"</p>
+      <cite style="display:block;margin-top:1rem;font-weight:600;">— Mike T., Tulare</cite>
+    </blockquote>
+  </div>
 </section>
 
+<!-- Social proof and contact buttons -->
+<div class="social-btns">
+  <a href="https://facebook.com/yourcompany" target="_blank" title="Facebook">
+    <img src="https://img.icons8.com/color/48/facebook-new.png" alt="Facebook">
+  </a>
+  <a href="https://instagram.com/yourcompany" target="_blank" title="Instagram">
+    <img src="https://img.icons8.com/color/48/instagram-new.png" alt="Instagram">
+  </a>
+  <a href="mailto:support@buildtright.com" class="email" title="Email Us">Email Us</a>
+  <a href="tel:5593020057" class="call" title="Call Now">Call Now</a>
+</div>
+
+<!-- Footer -->
 <footer>
-  Contact us at <a href="mailto:support@buildtright.com" style="color:#facc15;">support@buildtright.com</a><br>
-  Call <a href="tel:5593020057" style="color:#facc15;">559-302-0057</a><br>
-  © 2025 BUILDT Solutions. Serving Visalia & the Central Valley.
+  Contact us at <a href="mailto:support@buildtright.com">support@buildtright.com</a>
+  or call <a href="tel:5593020057">559-302-0057</a><br>
+  Serving Visalia, Tulare County, and the Central Valley<br>
+  © 2025 BUILDT Solutions
 </footer>
 
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init();
+  function calculate() {
+    const sqft = parseFloat(document.getElementById('squareFeet').value);
+    const level = parseFloat(document.getElementById('complexity').value);
+    if (!sqft || !level) {
+      document.getElementById('result').textContent = 'Please enter both fields.';
+      return;
+    }
+    const price = (sqft * (3 + level * 1.5)).toFixed(2);
+    document.getElementById('result').textContent = `Estimated Cost: $${price}`;
+  }
+</script>
 </body>
 </html>
